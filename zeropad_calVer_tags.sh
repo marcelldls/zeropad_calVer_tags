@@ -16,7 +16,6 @@ then
     git tag -l | while read t;
     do
         n=$(python -c "import re; print(re.sub(r'$match', r'$sub', '$t'))")
-        #n=$(python -c "import re; print(re.sub(r'\.([1-9])(\.|$)', r'.0\1\2', '$t'))")
         git tag $n $t && git tag -d $t
     done
 
